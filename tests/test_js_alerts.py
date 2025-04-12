@@ -1,5 +1,6 @@
 import pytest
 from pages.js_alerts_page import JSAlertsPage
+from config.test_data import TestData
 
 class TestJSAlerts:
     @pytest.fixture(autouse=True)
@@ -13,10 +14,10 @@ class TestJSAlerts:
         
         # Handle the alert
         alert_text = self.js_alerts_page.handle_alert()
-        assert alert_text == "I am a JS Alert"
+        assert alert_text == TestData.JS_ALERT_MESSAGE
         
         # Verify result
-        assert "You successfully clicked an alert" in self.js_alerts_page.get_result_text()
+        assert TestData.JS_ALERT_SUCCESS in self.js_alerts_page.get_result_text()
 
     def test_js_confirm(self):
         # Click the JS Confirm button
@@ -24,19 +25,18 @@ class TestJSAlerts:
         
         # Handle the confirm
         alert_text = self.js_alerts_page.handle_confirm(accept=True)
-        assert alert_text == "I am a JS Confirm"
+        assert alert_text == TestData.JS_CONFIRM_MESSAGE
         
         # Verify result
-        assert "You clicked: Ok" in self.js_alerts_page.get_result_text()
+        assert TestData.JS_CONFIRM_SUCCESS in self.js_alerts_page.get_result_text()
 
     def test_js_prompt(self):
         # Click the JS Prompt button
         self.js_alerts_page.click_js_prompt_button()
         
         # Handle the prompt
-        test_text = "Hello, LambdaTest!"
-        alert_text = self.js_alerts_page.handle_prompt(text=test_text)
-        assert alert_text == "I am a JS prompt"
+        alert_text = self.js_alerts_page.handle_prompt(text=TestData.JS_PROMPT_INPUT)
+        assert alert_text == TestData.JS_PROMPT_MESSAGE
         
         # Verify result
-        assert f"You entered: {test_text}" in self.js_alerts_page.get_result_text() 
+        assert f"You entered: {TestData.JS_PROMPT_INPUT}" in self.js_alerts_page.get_result_text() 
