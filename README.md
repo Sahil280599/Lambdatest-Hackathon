@@ -1,5 +1,4 @@
 
-https://github.com/user-attachments/assets/b8bd542c-1c7e-4ea2-b13e-e4697e8a9c4b
 # LambdaTest Hackathon - Test Automation Solution
 
 This repository contains an automated test solution for the LambdaTest Hackathon challenge. The solution includes test cases for login functionality and JavaScript alerts handling.
@@ -9,7 +8,7 @@ Test ID: MGEU1-VZW9D-T181Z-GWTR9
 
 ## Demo Video 
 
-https://github.com/user-attachments/assets/32cca012-f749-4a6b-a2db-d1155a877fb2
+https://github.com/user-attachments/assets/b8bd542c-1c7e-4ea2-b13e-e4697e8a9c4b
 
 
 ## Features
