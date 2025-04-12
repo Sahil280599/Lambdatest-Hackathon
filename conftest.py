@@ -49,10 +49,6 @@ def driver(browser, platform):
         options=options
     )
     
-    # Print LambdaTest test URL
-    session_id = driver.session_id
-    print(f"\nLambdaTest Test URL: https://automation.lambdatest.com/builds/detail/{session_id}\n")
-    
     yield driver
     
     driver.quit()

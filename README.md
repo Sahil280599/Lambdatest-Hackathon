@@ -14,12 +14,14 @@ Test ID: XPEQK-2UD96-YBDAK-MCTGW
 - HTML test reports
 - Secure credential handling
 - Cross-browser testing support
+- CI/CD Integration with Jenkins
 
 ## Prerequisites
 
 - Python 3.8 or higher
 - LambdaTest account and credentials
 - pip (Python package manager)
+- Jenkins (for CI/CD pipeline)
 
 ## Setup
 
@@ -42,28 +44,40 @@ LAMBDATEST_ACCESS_KEY=your_access_key
 
 ## Running Tests
 
-### Run all tests
+### Local Execution
 ```bash
 pytest -v -n auto --reruns 2 --html=report.html
 ```
 
-### Run specific test file
-```bash
-pytest tests/test_login.py -v
-pytest tests/test_js_alerts.py -v
+### Jenkins Pipeline
+1. Create a new pipeline job in Jenkins
+2. Point to this repository
+3. The Jenkinsfile will automatically:
+   - Set up Python virtual environment
+   - Install dependencies
+   - Run tests on LambdaTest
+   - Generate and archive test reports
+
+## Project Structure
+
 ```
-
-### Run with specific browser and platform
-```bash
-pytest -v --browser=chrome --platform="Windows 10"
+├── config/
+│   └── urls.py           # URL configurations
+├── pages/
+│   ├── login_page.py     # Login page object
+│   └── js_alerts_page.py # JavaScript alerts page object
+├── tests/
+│   ├── test_login.py     # Login test cases
+│   └── test_js_alerts.py # JavaScript alerts test cases
+├── utils/
+│   └── helpers.py        # Helper functions
+├── .env                  # Environment variables (not tracked by git)
+├── .env.example          # Example environment variables
+├── .gitignore           # Git ignore file
+├── Jenkinsfile          # CI/CD pipeline configuration
+├── README.md            # Project documentation
+└── requirements.txt     # Python dependencies
 ```
-
-## Test Structure
-
-- `conftest.py`: Contains shared fixtures and LambdaTest configuration
-- `utils/helpers.py`: Contains helper functions for common operations
-- `tests/test_login.py`: Login test cases
-- `tests/test_js_alerts.py`: JavaScript alerts test cases
 
 ## Test Cases
 
@@ -85,10 +99,12 @@ pytest -v --browser=chrome --platform="Windows 10"
 - ✅ Re-running failed cases (pytest-rerunfailures)
 - ✅ Clean logs + reports (pytest-html)
 - ✅ Secure handling of sensitive data (environment variables)
+- ✅ CI/CD Integration (Jenkins)
 
 ## Notes
 
 - Tests are configured to run on LambdaTest's cloud grid
 - HTML reports are generated after test execution
 - Failed tests are automatically retried twice
-- Tests can be run in parallel for faster execution 
+- Tests can be run in parallel for faster execution
+- Jenkins pipeline automates the entire testing process 
