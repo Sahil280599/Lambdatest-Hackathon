@@ -3,6 +3,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from dotenv import load_dotenv
+from config.test_data import TestData
 
 load_dotenv()
 
@@ -48,6 +49,10 @@ def driver(browser, platform):
         command_executor=grid_url,
         options=options
     )
+    
+    # Print LambdaTest test URL
+    session_id = driver.session_id
+    print(f"\nLambdaTest Test URL: https://automation.lambdatest.com/builds/detail/{session_id}\n")
     
     yield driver
     
