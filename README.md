@@ -3,7 +3,7 @@
 This repository contains an automated test solution for the LambdaTest Hackathon challenge. The solution includes test cases for login functionality and JavaScript alerts handling.
 
 ## LambdaTest Test ID
-Test ID: XPEQK-2UD96-YBDAK-MCTGW
+Test ID: MGEU1-VZW9D-T181Z-GWTR9
 
 ## Features
 
